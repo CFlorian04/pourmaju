@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Will You Be My Valentine? 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is designed to be an interactive webpage to ask someone to be your Valentine. Please use this code as inspiration.
+---
+## Respect Open-Source
+I built this for **fun & learning**. If you fork or modify it:  
+✔ **Use it for creativity, personal projects, or learning**  
+✔ **Give proper credit when using it in public**  
+✔ **Respect the original creator’s work**  
+ 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How It Works 
 
-## Expanding the ESLint configuration
+This project consists of a simple webpage with a "Yes" and "No" button. When the user clicks the "No" button, the button text changes to a series of  messages, and the "Yes" button grows larger. If the user clicks the "Yes" button, they are redirected to a new page (`yes_page.html`).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Features:
+- **Interactive Buttons**: The "No" button cycles through , while the "Yes" button grows in size.
+- **Responsive Design**: The webpage is designed to work on all screen sizes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## How to Use 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Download the Files**:
+   - Clone this repository or download the `index.html`, `styles.css`,`yes_style.css`,`yes_page.html` and `script.js` files.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Open the Project**:
+   - Open the `index.html` file in your web browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+
+## Code Overview 
+
+### Files:
+
+- `index.html`: The main HTML file that structures the webpage.
+- `styles.css`: The CSS file that styles the webpage.
+- `script.js`: The JavaScript file that handles the button interactions.
+- `yes_page.html`: The yes page that sturctures the webpage.
+- `yes_style.css`: The css file that styles the yes webpage.
+
+
+
+### Key Functions:
+
+- `handleNoClick()`: Changes the "No" button text and increases the size of the "Yes" button.
+- `handleYesClick()`: Redirects the user to `yes_page.html`.
+
+---
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
