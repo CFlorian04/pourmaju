@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Toi ❤️</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #fff5f5; color: #333; margin: 0; text-align: center; }
+        header { background: #ff4d6d; color: white; padding: 20px; }
+        
+        /* Menu Onglets */
+        .tab-container { display: flex; justify-content: center; background: #ff758f; }
+        .tab-button { background: none; border: none; padding: 15px; color: white; cursor: pointer; font-size: 16px; flex: 1; }
+        .tab-button:hover { background: #ff4d6d; }
+        .tab-button.active { border-bottom: 3px solid white; font-weight: bold; }
+
+        /* Contenu */
+        .content { display: none; padding: 20px; max-width: 600px; margin: auto; animation: fadeIn 0.5s; }
+        .active-content { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        img { max-width: 100%; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Joyeuse Saint-Valentin ❤️</h1>
+</header>
+
+<div class="tab-container">
+    <button class="tab-button active" onclick="openTab(event, 'accueil')">Accueil</button>
+    <button class="tab-button" onclick="openTab(event, 'moments')">Moments</button>
+    <button class="tab-button" onclick="openTab(event, 'playlist')">Playlist</button>
+</div>
+
+<div id="accueil" class="content active-content">
+    <h2>Déjà 1 mois...</h2>
+    <p>Depuis le premier jour, chaque moment est spécial.</p>
+    <img src="ta-photo.jpg" alt="Nous">
+</div>
+
+<div id="moments" class="content">
+    <h2>Nos souvenirs</h2>
+    <ul style="text-align: left;">
+        <li>✨ Notre rencontre le [Date]</li>
+        <li>☕ Ce premier café mémorable</li>
+        <li>🎬 Le film qu'on a vu ensemble</li>
+    </ul>
+</div>
+
+<div id="playlist" class="content">
+    <h2>Nos sons</h2>
+    <p>Ici, tu peux mettre un lien Spotify ou une liste de chansons !</p>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, content, tabs;
+        content = document.getElementsByClassName("content");
+        for (i = 0; i < content.length; i++) { content[i].classList.remove("active-content"); }
+        tabs = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabs.length; i++) { tabs[i].classList.remove("active"); }
+        document.getElementById(tabName).classList.add("active-content");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
