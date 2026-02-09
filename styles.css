@@ -1,51 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
     background-color: #f9e3e3;
     font-family: 'Arial', sans-serif;
     flex-direction: column;
-  }
-  
-  .container {
+    overflow-x: hidden;
+}
+
+.container {
     text-align: center;
-  }
-  
-  h1 {
-    font-size: 2.5em;
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
     color: #d32f2f;
-  }
-  
-  .buttons {
-    margin-top: 20px;
-  }
-  
-  .yes-button {
-    font-size: 1.5em;
-    padding: 10px 20px;
-    margin-right: 10px;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+    cursor: help;
+}
+
+/* Easter Egg survol Titre (Desktop) */
+h1:hover::after {
+    content: " (Dis oui ! ❤️)";
+    font-size: 0.5em;
+    display: block;
+    color: #ff8a80;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, auto));
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    min-height: 150px;
+}
+
+.yes-button {
+    font-size: 1.2rem;
+    padding: 15px 25px;
     background-color: #4caf50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
-  }
-  
-  .no-button {
-    font-size: 1.5em;
-    padding: 10px 20px;
+    animation: heartbeat 1.5s infinite;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    touch-action: manipulation;
+}
+
+.no-button {
+    font-size: 1.2rem;
+    padding: 15px 25px;
     background-color: #f44336;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
-  }
-  
-  .gif_container img {
-    max-width: 100%;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+    z-index: 10;
+}
+
+.gif_container img {
+    width: 100%;
+    max-width: 250px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 20px;
-  }
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.1); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.rainbow-text {
+    animation: rainbow 3s infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #d32f2f; }
+    33% { color: #ff4081; }
+    66% { color: #7b1fa2; }
+    100% { color: #d32f2f; }
+}

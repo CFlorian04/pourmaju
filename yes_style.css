@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -6,19 +8,39 @@ body {
     margin: 0;
     background-color: #f9e3e3;
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
+    padding: 20px;
+    z-index: 2;
 }
 
 .header_text {
-    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
     color: #d32f2f;
 }
 
 .gif_container img {
     width: 100%; 
-    max-width: 500px; 
-    height: auto; 
+    max-width: 400px; 
+    height: auto;
+    border-radius: 20px;
+}
+
+.heart {
+    position: fixed;
+    top: -20px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
 }
