@@ -10,92 +10,62 @@ body {
     background-color: #f9e3e3;
     font-family: 'Arial', sans-serif;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.container {
-    text-align: center;
-    width: 100%;
-    max-width: 450px;
-}
-
-h1 {
+/* Style du Prénom */
+#name-egg {
     font-family: 'Pacifico', cursive;
-    font-size: 2.5rem;
-    color: #d32f2f;
-    margin-bottom: 20px;
-    transition: color 0.3s;
-    cursor: help;
-}
-
-/* Easter Egg survol Titre (Desktop) */
-h1:hover::after {
-    content: " (Dis oui ! ❤️)";
-    font-size: 0.5em;
-    display: block;
     color: #ff8a80;
+    cursor: pointer;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(120px, auto));
-    gap: 15px;
+/* Image subliminale (cachée par défaut) */
+#subliminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: none;
     justify-content: center;
     align-items: center;
-    margin: 30px 0;
-    min-height: 150px;
+    z-index: 9999;
 }
 
+/* La vache qui traverse */
+#cow-egg {
+    position: fixed;
+    bottom: 10%;
+    left: -200px;
+    width: 150px;
+    z-index: 100;
+}
+
+@keyframes cow-walk {
+    from { left: -200px; }
+    to { left: 110vw; }
+}
+
+/* Reste du style précédent optimisé */
+.container { text-align: center; width: 100%; max-width: 450px; }
+h1 { font-family: 'Pacifico', cursive; font-size: 2.2rem; color: #d32f2f; }
+.buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0; }
+
 .yes-button {
-    font-size: 1.2rem;
-    padding: 15px 25px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    animation: heartbeat 1.5s infinite;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
-    touch-action: manipulation;
+    font-size: 1.2rem; padding: 15px; background-color: #4caf50; color: white;
+    border: none; border-radius: 12px; animation: heartbeat 1.5s infinite;
 }
 
 .no-button {
-    font-size: 1.2rem;
-    padding: 15px 25px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    touch-action: manipulation;
-    z-index: 10;
-}
-
-.gif_container img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    font-size: 1.2rem; padding: 15px; background-color: #f44336; color: white;
+    border: none; border-radius: 12px; transition: all 0.2s ease;
 }
 
 @keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.1); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-.rainbow-text {
-    animation: rainbow 3s infinite;
-}
-
-@keyframes rainbow {
-    0% { color: #d32f2f; }
-    33% { color: #ff4081; }
-    66% { color: #7b1fa2; }
-    100% { color: #d32f2f; }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }

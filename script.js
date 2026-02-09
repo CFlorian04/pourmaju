@@ -19,39 +19,65 @@ const messages = [
     "Tu es dure en affaire...",
     "Je ne savais pas que tu étais si cruelle...",
     "Bon, maintenant tu fais exprès non ?",
-    "Attrape-moi si tu peux !"
+    "Attrape-moi si tu peux !",
+    "Erreur 404 : Cœur non trouvé",
+    "Mes avocats vont te contacter.",
+    "Même Chat GPT dirait oui !",
+    "Je vais appeler ta maman.",
+    "Tu veux que je chante ? Non ? Alors dis oui !",
+    "Je vais bouder pendant 100 ans.",
+    "C'est ton index qui a glissé ?",
+    "Ok, je demande au chat à la place...",
+    "Le chat a dit oui lui !",
+    "Tu es plus têtue qu'une mule !",
+    "Je vais transformer ce bouton en poussière.",
+    "Hé ! Reviens ici !",
+    "Pourquoi tu me fuis ? 🏃‍♂️",
+    "C'est une caméra cachée ?",
+    "Tu as gagné un voyage... vers le bouton OUI !",
+    "Je t'offre un tacos si tu dis oui.",
+    "Une pizza ?",
+    "Un abonnement Netflix ?",
+    "Bon, j'utilise mon joker : S'IL TE PLAÎT !",
+    "Clique sur le gros bouton vert, il est plus beau.",
+    "Je ne partirai pas d'ici tant que c'est pas OUI."
 ];
 
 let messageIndex = 0;
+let musicStarted = false;
+
+// Démarrer la musique au premier clic
+document.body.addEventListener('click', () => {
+    if (!musicStarted) {
+        const music = document.getElementById('bg-music');
+        music.volume = 0.5;
+        music.play();
+        musicStarted = true;
+    }
+}, { once: true });
 
 function handleNoClick() {
+    // Jouer le bruit du "Non"
+    const noSound = document.getElementById('no-sound');
+    noSound.currentTime = 0;
+    noSound.play();
+
     const noButton = document.querySelector('.no-button');
     const yesButton = document.querySelector('.yes-button');
     
-    // Changer le texte du bouton Non
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
     
-    // Faire grossir le bouton Oui
+    // Le bouton Oui devient énorme
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.4}px`;
+    yesButton.style.fontSize = `${currentSize * 1.35}px`;
 
-    // Easter Egg : Changement de couleur du Oui après 5 refus
-    if (messageIndex === 5) {
-        yesButton.style.backgroundColor = "#e91e63";
-        yesButton.textContent = "DIS OUI ! ✨";
-    }
-
-    // Bouton fuyant après 10 clics
-    if (messageIndex > 10) {
+    // Le bouton Non s'enfuit après 5 clics
+    if (messageIndex > 5) {
         noButton.style.position = 'fixed';
-        const padding = 20;
-        const maxX = window.innerWidth - noButton.offsetWidth - padding;
-        const maxY = window.innerHeight - noButton.offsetHeight - padding;
-        
-        const x = Math.random() * (maxX - padding) + padding;
-        const y = Math.random() * (maxY - padding) + padding;
-        
+        const padding = 50;
+        const x = Math.random() * (window.innerWidth - noButton.offsetWidth - padding);
+        const y = Math.random() * (window.innerHeight - noButton.offsetHeight - padding);
         noButton.style.left = `${x}px`;
         noButton.style.top = `${y}px`;
     }
@@ -61,17 +87,20 @@ function handleYesClick() {
     window.location.href = "yes_page.html";
 }
 
-// Easter Egg Mobile : Appui long sur le GIF (2 secondes)
-const gif = document.getElementById('valentine-gif');
-let timer;
+// Easter Egg : La vache après 10 secondes
+setTimeout(() => {
+    const cow = document.getElementById('cow-egg');
+    if(cow) {
+        cow.style.display = 'block';
+        cow.style.animation = "cow-walk 10s linear forwards";
+    }
+}, 10000);
 
-gif.addEventListener('touchstart', () => {
-    timer = setTimeout(() => {
-        document.body.style.backgroundColor = "#ffc1e3";
-        document.getElementById('main-title').classList.add('rainbow-text');
-    }, 2000);
-});
-
-gif.addEventListener('touchend', () => {
-    clearTimeout(timer);
-});
+// Easter Egg : Image subliminale
+function triggerSubliminal() {
+    const overlay = document.getElementById('subliminal-overlay');
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 120); 
+}
