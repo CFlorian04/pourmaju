@@ -24,8 +24,27 @@ body {
     box-shadow: 0 15px 35px rgba(211, 47, 47, 0.1);
     width: 100%;
     max-width: 400px;
-    z-index: 1; /* Base pour le container */
+    z-index: 1;
     position: relative;
+}
+
+#name-egg {
+    font-family: 'Pacifico', cursive;
+    color: #ff8a80;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 2; /* Sous la vache */
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2rem;
+    color: #d32f2f;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2; /* Sous la vache */
 }
 
 .buttons {
@@ -47,7 +66,7 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    z-index: 2; /* Plus bas que le bouton non */
+    z-index: 3; /* Sous le bouton non et la vache */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     white-space: nowrap;
 }
@@ -61,8 +80,30 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    z-index: 1000; /* Toujours au-dessus de tout le reste */
+    z-index: 1000; /* Devant le bouton oui, mais sous la vache */
     transition: background-color 0.3s, transform 0.2s;
+}
+
+/* LA VACHE : Configurée pour passer par-dessus tout */
+#cow-egg {
+    position: fixed;
+    bottom: 20%; /* Ajuste la hauteur ici */
+    width: 120px;
+    z-index: 9999; /* Devant absolument TOUT sauf l'overlay subliminal */
+    pointer-events: none; /* Empêche la vache de bloquer les clics */
+}
+
+@keyframes cow-walk {
+    0% { left: -150px; }
+    100% { left: 110vw; }
+}
+
+.gif_container img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 #subliminal-overlay {
@@ -75,7 +116,5 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 99999; /* L'overlay reste l'élément suprême */
+    z-index: 100000; /* L'élément suprême */
 }
-
-/* ... reste du CSS (h1, gif_container, cow-walk) identique ... */

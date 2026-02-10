@@ -102,7 +102,7 @@ function launchCow() {
 // Lancement immédiat au bout de 5 secondes, puis boucle toutes les 30 secondes
 setTimeout(() => {
     launchCow();
-    setInterval(launchCow, 60000); // 30000ms = 30 secondes
+    setInterval(launchCow, 60000);
 }, 10000);
 
 // Easter Egg : Image subliminale
