@@ -1,46 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    background-color: #f9e3e3;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
+    background: linear-gradient(135deg, #f9e3e3 0%, #ffc1e3 100%);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
     text-align: center;
     padding: 20px;
-    z-index: 2;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(211, 47, 47, 0.1);
+    max-width: 90%;
+    z-index: 10;
 }
 
 .header_text {
     font-family: 'Pacifico', cursive;
     font-size: 2.5rem;
     color: #d32f2f;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
 }
 
 .gif_container img {
-    width: 100%; 
-    max-width: 400px; 
-    height: auto;
+    width: 100%;
+    max-width: 300px;
     border-radius: 20px;
+    border: 5px solid white;
 }
 
+.love-message {
+    margin: 20px 0;
+    font-weight: 600;
+    color: #b71c1c;
+}
+
+.small {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.counters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.counter-block {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(211, 47, 47, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.counter-block p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b71c1c;
+    font-weight: 600;
+}
+
+.timer {
+    font-weight: bold;
+    color: #d32f2f;
+    font-size: 1.1rem;
+    display: block;
+    margin-top: 2px;
+}
+
+#timer {
+    font-weight: bold;
+    display: block;
+    font-size: 1.1rem;
+}
+
+.back-home {
+    margin-top: 25px;
+    background: transparent;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Pluie de coeurs */
 .heart {
     position: fixed;
     top: -20px;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
     animation: fall linear forwards;
+    z-index: 1;
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-    }
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }

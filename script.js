@@ -87,13 +87,22 @@ function handleYesClick() {
     window.location.href = "yes_page.html";
 }
 
-// Easter Egg : La vache après 10 secondes
-setTimeout(() => {
+// Fonction pour faire passer la vache
+function launchCow() {
     const cow = document.getElementById('cow-egg');
-    if(cow) {
+    if (cow) {
         cow.style.display = 'block';
+        // On réinitialise l'animation (en la supprimant puis la remettant)
+        cow.style.animation = 'none';
+        cow.offsetHeight; // "Trick" pour forcer le navigateur à noter le changement
         cow.style.animation = "cow-walk 10s linear forwards";
     }
+}
+
+// Lancement immédiat au bout de 5 secondes, puis boucle toutes les 30 secondes
+setTimeout(() => {
+    launchCow();
+    setInterval(launchCow, 60000); // 30000ms = 30 secondes
 }, 10000);
 
 // Easter Egg : Image subliminale

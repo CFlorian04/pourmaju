@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Je savais que tu dirais oui !</title>
+    <title>JE T'AIME ! ❤️</title>
     <link rel="stylesheet" href="yes_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <audio id="victory-music" loop>
+        <source src="home_music.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
-        <h1 class="header_text">Je savais que tu dirais oui ! ❤️</h1>
+        <h1 class="header_text">C'est officiel ! 🥰</h1>
+        
         <div class="gif_container">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Happy GIF">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Amour">
         </div>
+
+        <div class="love-message">
+            <p>Tu as fait le bon choix ma Ju !</p>
+            <p class="small">Prépare-toi pour une Saint-Valentin inoubliable...</p>
+        </div>
+
+        <div class="counters-container">
+            <div class="counter-block">
+                <p>Notre première discussion :</p>
+                <span id="timer-chat" class="timer">Chargement...</span>
+            </div>
+            
+            <div class="counter-block">
+                <p>Notre première rencontre :</p>
+                <span id="timer-meet" class="timer">Chargement...</span>
+            </div>
+            
+            <div class="counter-block">
+                <p>Ensemble depuis :</p>
+                <span id="timer-couple" class="timer">Chargement...</span>
+            </div>
+        </div>
+
+        <button class="back-home" onclick="location.href='index.html'">Recommencer (juste pour le plaisir)</button>
     </div>
 
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            const types = ['❤️', '💖', '💝', '💕', '🌸', '✨'];
-            heart.innerHTML = types[Math.floor(Math.random() * types.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
-        }
-        setInterval(createHeart, 100);
-    </script>
+    <script src="yes_script.js"></script>
 </body>
 </html>
