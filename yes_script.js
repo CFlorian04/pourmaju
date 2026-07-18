@@ -26,7 +26,7 @@ setInterval(createHeart, 50);
 // --- CONFIGURATION DES DATES ---
 const dateChat = new Date("2025-12-30T22:00:00"); // Date 1ère discussion
 const dateMeet = new Date("2026-01-17T14:30:00"); // Date 1ère rencontre
-const dateCouple = new Date(); // Date officielle de couple
+const dateCouple = new Date("2026-02-06T08:00:00"); // Date officielle de couple
 
 function calculateTime(targetDate, elementId) {
     const now = new Date();
